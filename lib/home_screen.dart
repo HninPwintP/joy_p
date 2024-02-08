@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:joy_p/event_calendar.dart';
 import 'package:joy_p/navigation_button.dart';
-import 'package:joy_p/index_screen.dart';
+import 'package:joy_p/main.dart';
 
 //HomeScreen
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -14,21 +14,19 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _mainContents = [
     Container(
-      color: const Color.fromARGB(255, 0, 0, 0),
       alignment: Alignment.center,
-      child: const Text(
-        'Home',
-        style: TextStyle(fontSize: 40, color: Colors.white),
-      ),
+      child: const NavigationButton(
+          displayLabel: "Create Event",
+          iconType: Icons.event,
+          screenWidget: EventClendar()),
     ),
     Container(
-      color: const Color.fromARGB(255, 0, 0, 0),
-      alignment: Alignment.center,
-      child: const EventClendar(),
-    ),
-    // Content for Favorites tab
-    Container(
-      color: const Color.fromARGB(255, 0, 0, 0),
+      decoration: const BoxDecoration(
+          gradient: RadialGradient(colors: [
+        Color.fromARGB(255, 146, 145, 145),
+        Color.fromARGB(255, 192, 190, 190),
+        Color.fromARGB(255, 223, 221, 221),
+      ], center: Alignment.center, radius: 1)),
       alignment: Alignment.center,
       child: const Text(
         'Lobby',
@@ -37,9 +35,11 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
     // Content for Settings tab
     Container(
-      color: const Color.fromARGB(255, 0, 0, 0),
       alignment: Alignment.center,
-      child: const NavigationButton(displayLabel: "Logout", iconType: Icons.logout, screenWidget: IndexScreen()),
+      child: const NavigationButton(
+          displayLabel: "Logout",
+          iconType: Icons.logout,
+          screenWidget: MyApp()),
     ),
   ];
 
@@ -51,7 +51,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('JoyP'),
+        backgroundColor: Color.fromARGB(255, 140, 61, 185),
+        title: const Text(
+          'JoyP',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
+            fontFamily: 'CaveatBold',
+          ),
+        ),
         automaticallyImplyLeading: false,
       ),
       // Show the bottom tab bar if screen width < 640
@@ -59,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ? BottomNavigationBar(
               currentIndex: _selectedIndex,
               unselectedItemColor: Colors.grey,
-              selectedItemColor: Colors.lightGreen,
+              selectedItemColor: Color.fromARGB(255, 140, 61, 185),
               // called when one tab is selected
               onTap: (int index) {
                 setState(() {
@@ -70,8 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
               items: const [
                   BottomNavigationBarItem(
                       icon: Icon(Icons.home), label: 'Home'),
-                  BottomNavigationBarItem(
-                      icon: Icon(Icons.event), label: 'Events'),
+                  //BottomNavigationBarItem(
+                  //    icon: Icon(Icons.event), label: 'Events'),
                   BottomNavigationBarItem(
                       icon: Icon(Icons.group), label: 'Lobby'),
                   BottomNavigationBarItem(
@@ -94,26 +102,18 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               labelType: NavigationRailLabelType.all,
               selectedLabelTextStyle: const TextStyle(
-                color: Colors.blueGrey,
+                color: Color.fromARGB(255, 140, 61, 185),
               ),
-              leading: Column(
-                children: const [
-                  SizedBox(
-                    height: 8,
-                  ),
-                  CircleAvatar(
-                    radius: 20,
-                    child: Icon(Icons.person),
-                  ),
-                ],
-              ),
+              selectedIconTheme: const IconThemeData(
+                  size: 30, color: Color.fromARGB(255, 140, 61, 185)),
+
               unselectedLabelTextStyle: const TextStyle(),
               // navigation rail items
               destinations: const [
                 NavigationRailDestination(
                     icon: Icon(Icons.home), label: Text('Home')),
-                NavigationRailDestination(
-                    icon: Icon(Icons.event), label: Text('Events')),
+                //NavigationRailDestination(
+                //    icon: Icon(Icons.event), label: Text('Events')),
                 NavigationRailDestination(
                     icon: Icon(Icons.group), label: Text('Lobby')),
                 NavigationRailDestination(

@@ -1,33 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:joy_p/home_screen.dart';
+import 'package:joy_p/index_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
-  //This widget is ther root of app
+  //This widget is the root of app
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 24, 107, 8),
-                Color.fromARGB(255, 70, 223, 134),
-                Color.fromARGB(255, 169, 220, 185)
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight
-            )
-          ),
-          child: const HomeScreen(),
+        home: Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+            gradient: RadialGradient(colors: [
+          Color.fromARGB(255, 146, 145, 145),
+          Color.fromARGB(255, 192, 190, 190),
+          Color.fromARGB(255, 223, 221, 221),
+        ], center: Alignment.center, radius: 1)),
+        //child: const HomeScreen(),
+        child: const IndexScreen(),
       ),
-    ) 
-    );
+    ));
   }
 }

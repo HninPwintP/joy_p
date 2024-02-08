@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:joy_p/home_screen.dart';
-import 'package:joy_p/index_screen.dart';
+import 'package:joy_p/main.dart';
 
 //SignIn.SignUpScreen
 class SignInUpScreen extends StatefulWidget {
@@ -64,7 +64,7 @@ class SignInUpScreenState extends State<SignInUpScreen> {
               child: ElevatedButton.icon(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const IndexScreen();
+                    return const MyApp();
                   }));
                 },
                 icon: Icon(

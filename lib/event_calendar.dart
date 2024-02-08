@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:joy_p/event_detail.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:joy_p/event_detail.dart';
 
 class EventClendar extends StatefulWidget {
-  const EventClendar({Key? key}) : super(key: key);
+  const EventClendar({super.key});
 
   @override
   State<EventClendar> createState() => _EventClendarState();
@@ -34,6 +34,19 @@ class _EventClendarState extends State<EventClendar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 140, 61, 185),
+        title: const Text(
+          'Event',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
+            fontFamily: 'CaveatBold',
+          ),
+        ),
+        automaticallyImplyLeading: false,
+      ),
+      backgroundColor: Color.fromARGB(255, 220, 189, 248),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDialog(
