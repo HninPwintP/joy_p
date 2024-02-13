@@ -13,6 +13,7 @@ class EventDetail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(eventName),
+        automaticallyImplyLeading: true,
       ),
       body: const Center(
         child: Column(
