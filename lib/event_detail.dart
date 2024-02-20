@@ -12,7 +12,16 @@ class EventDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(eventName),
+        backgroundColor: Color.fromARGB(255, 140, 61, 185),
+        title: Text(
+          eventName,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
+            fontFamily: 'CaveatBold',
+          ),
+        ),
+        automaticallyImplyLeading: true,
       ),
       body: const Center(
         child: Column(
