@@ -44,7 +44,7 @@ class _EventClendarState extends State<EventClendar> {
             fontFamily: 'CaveatBold',
           ),
         ),
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
       ),
       backgroundColor: Color.fromARGB(255, 220, 189, 248),
       floatingActionButton: FloatingActionButton(
